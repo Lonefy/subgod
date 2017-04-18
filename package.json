@@ -1,0 +1,49 @@
+{
+    "name": "koajs-weibo",
+    "version": "0.0.2",
+    "description": "",
+    "main": "app.js",
+    "dependencies": {
+        "co": "^4.6.0",
+        "co-mysql": "^1.0.0",
+        "co-request": "^1.0.0",
+        "crypto": "0.0.3",
+        "dateformat": "^1.0.12",
+        "extend": "^3.0.0",
+        "fast-csv": "2.1.0",
+        "jade": "~1.11.0",
+        "js-base64": "^2.1.9",
+        "koa": "^1.2.0",
+        "koa-body": "^1.4.0",
+        "koa-gzip": "^0.1.0",
+        "koa-json": "^1.1.1",
+        "koa-logger": "^1.3.0",
+        "koa-qs": "^2.0.0",
+        "koa-route": "^2.4.2",
+        "koa-session": "^3.3.1",
+        "koa-send": "3.1.1",
+        "koa-static": "^2.0.0",
+        "koa-static-cache": "^3.1.5",
+        "koa-useragent": "^0.1.4",
+        "koa-views": "^4.1.0",
+        "koa-socket": "^4.4.0",
+        "log4js": "^0.6.36",
+        "moment": "^2.13.0",
+        "mysql": "^2.10.2",
+        "node-rsa": "^0.3.2",
+        "request": "^2.69.0",
+        "sortobj2querystr": "*"
+    },
+    "devDependencies": {
+        "weibo": "^0.6.11"
+    },
+    "scripts": {
+        "start": "node --harmony app.js"
+    },
+    "keywords": [
+        "koajs",
+        "weibo"
+    ],
+    "author": "finrila@gmail.com",
+    "license": "ISC"
+}

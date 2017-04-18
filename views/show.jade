@@ -1,0 +1,20 @@
+extends layout
+
+block title
+  title='todo.name'
+
+block content
+  dl.todo
+    dt
+      h1= todo.name
+    dd
+      p.description= todo.description
+      div
+        div.created
+          label(for="created") created
+          time(date="#{todo.created_on.toDateString()}") #{todo.created_on.toDateString()}
+        div.updated
+          label(for="updated") updated
+          time(date="#{todo.updated_on.toDateString()}") #{todo.updated_on.toDateString()}
+      div
+        a(href="/", class="button") back
