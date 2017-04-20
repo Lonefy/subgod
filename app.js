@@ -1,8 +1,4 @@
-/**
- * 应用入口
- * @author finrila
- */
-require('./config/main');
+// require('./config/main');
 
 var path = require('path');
 var http = require('http');
@@ -22,29 +18,32 @@ var userAgent = require('koa-useragent');
 var koa = require('koa');
 var app = koa();
 
+var router = require('./router');
+
 /////////////////////
 
 
 // x-response-time
-app.use(function*(next) {
-    var start = new Date;
-    yield next;
-    var ms = new Date - start;
-    this.set('X-Response-Time', ms + 'ms');
-});
+// app.use(function*(next) {
+//     var start = new Date;
+//     yield next;
+//     var ms = new Date - start;
+//     this.set('X-Response-Time', ms + 'ms');
+// });
 
 // logger
-app.use(function*(next) {
-    var start = new Date;
-    yield next;
-    var ms = new Date - start;
-    console.log('%s %s - %s', this.method, this.url, ms);
-});
+// app.use(function*(next) {
+//     var start = new Date;
+//     yield next;
+//     var ms = new Date - start;
+//     console.log('%s %s - %s', this.method, this.url, ms);
+// });
+
 
 // response
-app.use(function*() {
-    this.body = 'Hello World';
-});
+// app.use(function*() {
+//     this.body = 'Hello World';
+// });
 
 
 app.use(views(__dirname + '/views', {
@@ -52,8 +51,14 @@ app.use(views(__dirname + '/views', {
     extension: 'jade'
 }));
 
-// static file serve
-app.use(serve(__dirname + '/public'), { defer: true });
+router(app);
+// app.use(route.get('/index', require('./controller/index')));
+
+// app.use(require('./controller/index'));
+
+console.log(app)
+    // static file serve
+    // app.use(serve(__dirname + '/public'), { defer: true });
 
 app.listen(3000);
 console.log('listening 3000');
