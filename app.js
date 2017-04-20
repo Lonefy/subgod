@@ -13,6 +13,7 @@ var session = require('koa-session');
 var staticCache = require('koa-static-cache');
 var koaBody = require('koa-body');
 var userAgent = require('koa-useragent');
+var serve = require('koa-static');
 
 //静态文件
 var koa = require('koa');
@@ -52,9 +53,8 @@ app.use(views(__dirname + '/views', {
 }));
 
 router(app);
-// app.use(route.get('/index', require('./controller/index')));
+app.use(serve(__dirname + '/public'), { defer: true });
 
-// app.use(require('./controller/index'));
 
 console.log(app)
     // static file serve
