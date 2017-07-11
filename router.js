@@ -8,7 +8,10 @@ module.exports = function(app) {
 
     var router = [
         ['/', './controller/index'],
-        ['/index', './controller/index']
+        ['/index', './controller/index'],
+        ['/mgt', './controller/mgt'],
+
+        ['/aj/demo','./ajax/demo']
     ]
 
 
