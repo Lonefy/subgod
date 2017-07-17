@@ -4,19 +4,19 @@ module.exports = function*() {
      this.body = [1,2,3,4,5];
 }
 
-var aj_data_response = require(basePath + "common/aj_data_response");
+// var aj_data_response = require(basePath + "common/aj_data_response");
 
-module.exports = function * () {
+// module.exports = function * () {
     
-  var articleListResult = yield aj_data_response.call(this, 'articleList', {
-    uid: this.query.uid,
-    starttime: this.query.starttime,
-    endtime: this.query.endtime
-  });
+//   var articleListResult = yield aj_data_response.call(this, 'articleList', {
+//     uid: this.query.uid,
+//     starttime: this.query.starttime,
+//     endtime: this.query.endtime
+//   });
 
 
-  this.body = articleListResult;
-};
+//   this.body = articleListResult;
+// };
 
 // articleListResult part
 // /**

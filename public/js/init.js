@@ -10,7 +10,7 @@ window.onload = function() {
                 }
             },
             "color": {
-                "value": "#ffffff"
+                "value": "#fff"
             },
             "shape": {
                 "type": "circle",
@@ -50,7 +50,7 @@ window.onload = function() {
             "line_linked": {
                 "enable": true,
                 "distance": 150,
-                "color": "#ffffff",
+                "color": "#8192d6",
                 "opacity": 0.4,
                 "width": 1
             },
