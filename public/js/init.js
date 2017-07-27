@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
 
     particlesJS('background', {
         "particles": {
@@ -109,8 +109,13 @@ window.onload = function() {
             }
         },
         "retina_detect": true
-    }, function() {
+    }, function () {
         console.log('callback - particles.js config loaded');
     });
 
+    var socket = io();
+    console.log(socket)
+    setInterval(() => {
+        socket.emit('chat message', 'Hello, Sub');
+    }, 2000)
 }

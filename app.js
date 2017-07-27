@@ -17,28 +17,34 @@ var serve = require('koa-static');
 
 //静态文件
 var koa = require('koa');
-var app = koa();
+var app = new koa();
 
 var router = require('./router');
+
+var server = require('http').createServer(app.callback());
+var io = require('socket.io')(server);
+
+
 
 /////////////////////
 
 
 // x-response-time
-// app.use(function*(next) {
-//     var start = new Date;
-//     yield next;
-//     var ms = new Date - start;
-//     this.set('X-Response-Time', ms + 'ms');
-// });
+app.use(function*(next) {
+    var start = new Date;
+    yield next;
+    var ms = new Date - start;
+    this.set('X-Response-Time', ms + 'ms');
+});
 
 // logger
-// app.use(function*(next) {
-//     var start = new Date;
-//     yield next;
-//     var ms = new Date - start;
-//     console.log('%s %s - %s', this.method, this.url, ms);
-// });
+app.use(function*(next) {
+    var start = new Date;
+    yield next;
+    var ms = new Date - start;
+    console.log(this.request)
+    // console.log('%s %s - %s', this.method, this.url, ms);
+});
 
 
 // response
@@ -56,9 +62,20 @@ router(app);
 app.use(serve(__dirname + '/public'), { defer: true });
 
 
-console.log(app)
-    // static file serve
-    // app.use(serve(__dirname + '/public'), { defer: true });
 
-app.listen(3000);
+// static file serve
+// app.use(serve(__dirname + '/public'), { defer: true });
+io.on('connection', function (socket) {
+    console.log('a user connected');
+    
+    socket.on('disconnect', function () {
+        console.log('user disconnected');
+    });
+
+    socket.on('chat message', function (msg) {
+        console.log('message: ' + msg);
+    });
+});
+
+server.listen(3000);
 console.log('listening 3000');

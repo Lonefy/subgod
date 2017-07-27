@@ -1,5 +1,5 @@
 {
-  "name": "koajs-weibo",
+  "name": "SUBGOD",
   "version": "0.0.2",
   "description": "",
   "main": "app.js",
@@ -13,7 +13,7 @@
     "fast-csv": "2.1.0",
     "jade": "~1.11.0",
     "js-base64": "^2.1.9",
-    "koa": "^1.2.0",
+    "koa": "^2.0.0",
     "koa-body": "^1.4.0",
     "koa-gzip": "^0.1.0",
     "koa-json": "^1.1.1",
@@ -33,6 +33,7 @@
     "mysql": "^2.10.2",
     "node-rsa": "^0.3.2",
     "request": "^2.69.0",
+    "socket.io": "^2.0.3",
     "sortobj2querystr": "*"
   },
   "devDependencies": {
@@ -42,9 +43,8 @@
     "start": "node --harmony app.js"
   },
   "keywords": [
-    "koajs",
-    "weibo"
+    "koajs"
   ],
-  "author": "finrila@gmail.com",
+  "author":"lonefy@foxmail.com",
   "license": "ISC"
 }

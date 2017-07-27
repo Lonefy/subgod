@@ -1,7 +1,7 @@
 module.exports = function*() {
     yield this.render('index.jade', {
         data: {
-            text: 'This is SUBGOD'
+            text: 'THIS IS SUBGOD'
         },
     });
 }
