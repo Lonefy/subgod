@@ -19,7 +19,7 @@ var serve = require('koa-static');
 var koa = require('koa');
 var app = new koa();
 
-var router = require('./router');
+var router = require('./app/router');
 
 var server = require('http').createServer(app.callback());
 var io = require('socket.io')(server);
@@ -53,13 +53,13 @@ app.use(function*(next) {
 // });
 
 
-app.use(views(__dirname + '/views', {
+app.use(views(__dirname + '/app/views', {
     default: 'jade',
     extension: 'jade'
 }));
 
 router(app);
-app.use(serve(__dirname + '/public'), { defer: true });
+app.use(serve(__dirname + '/app/public'), { defer: true });
 
 
 
