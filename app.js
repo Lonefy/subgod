@@ -24,9 +24,11 @@ var router = require('./app/router');
 var server = require('http').createServer(app.callback());
 var io = require('socket.io')(server);
 
+var log = require('./app/middleware/log.js');
 
 
 /////////////////////
+
 
 
 // x-response-time
@@ -37,16 +39,16 @@ app.use(function*(next) {
     this.set('X-Response-Time', ms + 'ms');
 });
 
+
 // logger
+app.use(log())
 app.use(function*(next) {
     var start = new Date;
     yield next;
     var ms = new Date - start;
-    console.log(this.request)
+    // console.log('app',this)
     // console.log('%s %s - %s', this.method, this.url, ms);
 });
-
-
 // response
 // app.use(function*() {
 //     this.body = 'Hello World';
@@ -58,11 +60,11 @@ app.use(views(__dirname + '/app/views', {
     extension: 'jade'
 }));
 
-router(app);
 app.use(serve(__dirname + '/app/public'), { defer: true });
 
 
-
+router(app);
+// log(app)
 // static file serve
 // app.use(serve(__dirname + '/public'), { defer: true });
 io.on('connection', function (socket) {
@@ -76,6 +78,9 @@ io.on('connection', function (socket) {
         console.log('message: ' + msg);
     });
 });
+
+
+
 
 server.listen(3000);
 console.log('listening 3000');

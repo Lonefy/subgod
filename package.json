@@ -28,7 +28,7 @@
     "koa-useragent": "^0.1.4",
     "koa-views": "^4.1.0",
     "lodash": "^4.17.4",
-    "log4js": "^0.6.36",
+    "log4js": "^0.6.38",
     "moment": "^2.13.0",
     "mysql": "^2.10.2",
     "node-rsa": "^0.3.2",
@@ -45,6 +45,6 @@
   "keywords": [
     "koajs"
   ],
-  "author":"lonefy@foxmail.com",
+  "author": "lonefy@foxmail.com",
   "license": "ISC"
 }
