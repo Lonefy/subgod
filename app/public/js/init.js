@@ -115,7 +115,11 @@ window.onload = function () {
 
     var socket = io();
     console.log(socket)
+
+    socket.on('connect', function () {
+        socket.emit('chart message', 'Hehe');
+    });
     setInterval(() => {
-        socket.emit('chat message', 'Hello, Sub');
+        socket.emit('chat message', 'nihilum');
     }, 2000)
 }

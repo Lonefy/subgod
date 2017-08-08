@@ -41,13 +41,13 @@ log4js.configure({
     appenders: [{
         type: 'console' // 控制台输出
     }, {
-        type: 'file', // 文件输出
+        type: 'datefile', // 文件输出
         filename: 'logs/', // 需要手动创建此文件夹
         pattern: "yyyy-MM-dd.log",
         alwaysIncludePattern: true,
         maxLogSize: 1024,
         backups: 4, // 日志备份数量，大于该数则自动删除
-        category: 'logInfo' // 记录器名  
+        // category: 'logInFo' // 记录器名 
     }],
     replaceConsole: true // 替换 console.log
 });
@@ -76,10 +76,15 @@ function dev(opts) {
         }
 
         log4js.connectLogger(log4js.getLogger('logInfo'), {
-            level: levels['warn'],
+            level: levels['trace'],
             format: ':method :url :status'
         })
+        var logger = log4js.getLogger('logInfo'),
+            {request, response} = this,
+            {method, url, header} = request
 
+        console.log('--------------')
+        console.log(method, url, header.host)
 
     }
 }
