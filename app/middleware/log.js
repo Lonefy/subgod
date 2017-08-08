@@ -84,7 +84,7 @@ function dev(opts) {
             {method, url, header} = request
 
         console.log('--------------')
-        console.log(method, url, header.host)
+        console.log(method, url, header.host, header['user-agent'])
 
     }
 }
