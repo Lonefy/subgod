@@ -41,7 +41,7 @@ log4js.configure({
     appenders: [{
         type: 'console' // 控制台输出
     }, {
-        type: 'datefile', // 文件输出
+        type: 'dateFile', // 文件输出
         filename: 'logs/', // 需要手动创建此文件夹
         pattern: "yyyy-MM-dd.log",
         alwaysIncludePattern: true,
@@ -81,10 +81,13 @@ function dev(opts) {
         })
         var logger = log4js.getLogger('logInfo'),
             {request, response} = this,
-            {method, url, header} = request
+            {method, url, header} = request,
+            ip = request.ip
 
         console.log('--------------')
-        console.log(method, url, header.host, header['user-agent'])
+        console.log(method, url)
+        console.log(ip, header.host)
+        console.log(header['user-agent'])
 
     }
 }
