@@ -68,14 +68,13 @@ router(app);
 // static file serve
 // app.use(serve(__dirname + '/public'), { defer: true });
 io.on('connection', function (socket) {
-    console.log('a user connected');
-    
-    socket.on('disconnect', function () {
-        console.log('user disconnected');
+    console.log(`${socket.handshake.address} connected`);
+    socket.on('disconnect', function (e) {
+        console.log(`${socket.handshake.address} disconnected`);
     });
 
     socket.on('chat message', function (msg) {
-        console.log('message: ' + msg);
+        // console.log('message: ' + msg);
     });
 });
 

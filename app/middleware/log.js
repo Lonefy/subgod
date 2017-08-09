@@ -76,7 +76,7 @@ function dev(opts) {
         }
 
         log4js.connectLogger(log4js.getLogger('logInfo'), {
-            level: levels['trace'],
+            level: levels['warn'],
             format: ':method :url :status'
         })
         var logger = log4js.getLogger('logInfo'),
@@ -85,9 +85,8 @@ function dev(opts) {
             ip = request.ip
 
         console.log('--------------')
-        console.log(method, url)
-        console.log(ip, header.host)
-        console.log(header['user-agent'])
+        console.log(ip, method, url)
+        logger.trace(header['user-agent'])
 
     }
 }
